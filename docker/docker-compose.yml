@@ -63,7 +63,14 @@ services:
       - backend
     working_dir: /var/www/html
   npm:
-    image: node:16.13.2-slim
+    image: node:13.8.0-slim
+    # environment:
+    #   - NODE_OPTIONS=--openssl-legacy-provider
+    container_name: node
+    ports:
+      - "3080:3080"
+      - "3000:3000"
+      - "3001:3001"
     volumes:
       - ../src:/var/www/html
     networks:
